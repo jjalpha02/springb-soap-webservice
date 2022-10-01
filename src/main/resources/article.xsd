@@ -1,0 +1,50 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://esgis.com.test/blogwebservice/model"
+           targetNamespace="http://esgis.com.test/blogwebservice/model"
+           elementFormDefault="qualified">
+
+    <xs:element name="getArticleRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getArticleResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="article" type="tns:article"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="article">
+        <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="titre" type="xs:string" />
+            <xs:element name="contenu" type="xs:string" />
+            <xs:element name="numeroPublication" type="xs:string" />
+            <xs:element name="datePublication" type="xs:date" />
+            <xs:element name="auteur" type="xs:string" />
+
+            <xs:element name="commentaires" >
+                <xs:complexType>
+                    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="commentaire" type="tns:Commentaire"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Commentaire">
+        <xs:sequence>
+            <xs:element name="libelle" type="xs:string"/>
+            <xs:element name="contenu" type="xs:string"/>
+            <xs:element name="datePublication" type="xs:date"/>
+            <xs:element name="auteur" type="xs:string"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

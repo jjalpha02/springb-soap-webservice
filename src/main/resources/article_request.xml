@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:us="http://esgis.com.test/blogwebservice/model">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <us:getArticleRequest>
+            <us:id>1</us:id>
+        </us:getArticleRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
